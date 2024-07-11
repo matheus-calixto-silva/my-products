@@ -9,7 +9,8 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "prepare": "husky install",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "server": "npx json-server db.json"
   },
   "ntl": {
     "runner": "yarn",
@@ -58,6 +59,7 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
     "husky": "6",
+    "json-server": "^1.0.0-beta.1",
     "lint-staged": "^15.2.7",
     "ntl": "^5.1.0",
     "postcss": "^8.4.39",
