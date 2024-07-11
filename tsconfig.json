@@ -1,4 +1,11 @@
 {
+  "baseUrl": ".",
+  "compilerOptions": {
+    "paths": {
+      "@app/*": ["./src/app/*"],
+      "@views/*": ["./src/views/*"]
+    }
+  },
   "files": [],
   "references": [
     {
