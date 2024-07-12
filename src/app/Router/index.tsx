@@ -14,7 +14,10 @@ const Router = () => {
       <Routes>
         <Route path={routes.home} element={<Home />} />
         <Route path={routes.createProduct} element={<Product />} />
-        <Route path={routes.editProduct} element={<Product />} />
+        <Route
+          path={`${routes.editProduct}/:productId`}
+          element={<Product />}
+        />
       </Routes>
     </Suspense>
   );
