@@ -1,10 +1,11 @@
 /* eslint-disable camelcase */
-import { Mailbox } from 'lucide-react';
+import { CircleDollarSign } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 import { IDialog } from '@app/interfaces/IDialog';
 import { routes } from '@app/Router/routes';
 
+import { useTheme } from '@app/contexts/ThemeProvider';
 import { IProductCard } from '@app/interfaces/IProductCard';
 import AlertDialogPopup from './AlertDialogPopUp';
 import { Button } from './ui/button';
@@ -25,16 +26,24 @@ function ProductCard({ product, onDelete }: IProductCard) {
     },
   };
 
+  const { theme } = useTheme();
+
   return (
     <>
-      <Card className="mb-10">
+      <Card className="mb-10 p-6">
         <CardContent>
           <p className="mb-1">{name}</p>
-          <p className="text-violet-400">{description}</p>
+          <p
+            className={
+              theme === 'light' ? 'text-violet-900' : 'text-violet-400'
+            }
+          >
+            {description}
+          </p>
         </CardContent>
         <CardFooter />
         <CardContent className="flex">
-          <Mailbox /> <p className="ml-2">{price}</p>
+          <CircleDollarSign /> <p className="ml-2">{price}</p>
         </CardContent>
         <CardContent className="flex">
           <Button variant="default" className="mr-2">
