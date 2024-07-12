@@ -10,12 +10,15 @@ import {
   PaginationPrevious,
 } from '@views/components/ui/pagination';
 import { useEffect, useState } from 'react';
+import { useDocumentTitle } from 'usehooks-ts';
 
 const Home = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
   const rowsPerPage = 5;
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(rowsPerPage);
+
+  useDocumentTitle('My Products - Home');
 
   const fetchData = async () => {
     try {
@@ -89,7 +92,7 @@ const Home = () => {
                 className={
                   startIndex === 0
                     ? 'pointer-events-none opacity-50'
-                    : 'cursor-pointer'
+                    : 'cursor-pointer opacity-100'
                 }
                 onClick={handlePreviousClick}
               />
@@ -98,9 +101,9 @@ const Home = () => {
             <PaginationItem>
               <PaginationNext
                 className={
-                  endIndex >= products.length
+                  startIndex === 0
                     ? 'pointer-events-none opacity-50'
-                    : 'cursor-pointer'
+                    : 'cursor-pointer opacity-100'
                 }
                 onClick={handleNextClick}
               />
