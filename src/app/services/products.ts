@@ -1,8 +1,10 @@
 import axios from 'axios';
 
+import { env } from '@app/config/env';
 import { IProduct } from '@app/interfaces/IProduct';
 
-const baseUrl = 'http://localhost:3000/products';
+const baseUrl = env.apiUrl;
+console.log(baseUrl);
 
 const getAllProducts = async () => {
   const request = await axios.get(`${baseUrl}`);
